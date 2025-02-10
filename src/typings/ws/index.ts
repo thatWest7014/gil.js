@@ -1,4 +1,5 @@
 import { ClientUserPayload } from "../payloads/user";
+export * from "./events";
 
 export type WebSocketPayload = {
     /** The operation code of the message. */

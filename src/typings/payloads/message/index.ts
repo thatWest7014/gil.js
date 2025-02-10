@@ -1,6 +1,9 @@
 import { EmbedPayload } from "./embed";
 import { MentionsPayload } from "./mentions";
 
+export * from "./embed";
+export * from "./mentions";
+
 export type MessagePayload = {
     id: string;
     type: MessageType;
