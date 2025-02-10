@@ -21,5 +21,9 @@ client.on("ready", () => {
 client.login();
 ```
 
+## Credits
+- [discord.js](https://discord.js.org) (inspiration)
+- [@discordjs/collection](https://npmjs.com/@discordjs/collection)
+
 # Warning
 - This library is **not** yet complete. There is a lot of the Guilded API still to cover!

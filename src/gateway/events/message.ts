@@ -1,6 +1,10 @@
 import { Client } from "../../structures/Client";
 import { Message } from "../../structures/Message";
-import { ChatMessageCreatedPayload, ChatMessageDeletedPayload, ChatMessageUpdatedPayload } from "../../typings/ws/events/message";
+import { 
+    ChatMessageCreatedPayload, 
+    ChatMessageDeletedPayload, 
+    ChatMessageUpdatedPayload 
+} from "../../typings/ws/events/message";
 
 export const created = (data: ChatMessageCreatedPayload, client: Client) => {
     const message = new Message(data.message, client);

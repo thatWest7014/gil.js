@@ -5,6 +5,10 @@ import { ClientUser } from "./User";
 import { WebSocketEvent } from "../typings/ws/events";
 import { handleWSEvent } from "../gateway";
 import { Message } from "./Message";
+import { Server } from "./Server";
+import { Member } from "./Member";
+import { ServersManager } from "../managers/ServersManager";
+import { Ban } from "./Ban";
 
 /**
  * The main hub for interacting with the Guilded API.
@@ -12,10 +16,11 @@ import { Message } from "./Message";
 export class Client extends EventEmitter {
     /** The WebSocket Manager for the client. */
     ws: WebSocketManager;
-
     /** The client's user. */
     user: ClientUser | null = null;
     
+    servers: ServersManager;
+
     /**
      * @param options Options for the client.
      */
@@ -25,6 +30,8 @@ export class Client extends EventEmitter {
         this.ws = new WebSocketManager({
             token: options.token,
         });
+
+        this.servers = new ServersManager(this);
     };
 
     /** Login to the Guilded bot. */
@@ -64,7 +71,13 @@ export type ClientOptions = {
 
 export type ClientEvents = {
     ready: [client: Client];
+    botServerAdded: [server: Server, invitedBy: string];
+    botServerRemoved: [server: Server, removedBy: string];
     messageCreated: [message: Message];
     messageUpdated: [message: Message];
     messageDeleted: [message: Message];
+    memberJoined: [member: Member, serverId: string, memberCount: number];
+    memberRemoved: [userId: string, serverId: string, kicked: boolean, banned: boolean];
+    memberBanned: [ban: Ban, serverId: string];
+    memberUnbanned: [ban: Ban, serverId: string];
 };
