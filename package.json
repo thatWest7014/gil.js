@@ -1,0 +1,33 @@
+{
+  "name": "gil.js",
+  "version": "0.1.5",
+  "description": "A powerful Node.js library for interacting with the Guilded API.",
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [
+    "guilded",
+    "guilded-api"
+  ],
+  "homepage": "https://github.com/imskeptical/gil.js#readme",
+  "bugs": {
+    "url": "https://github.com/imskeptical/gil.js/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imskeptical/gil.js.git"
+  },
+  "author": {
+    "name": "Skeptical",
+    "url": "https://github.com/imskeptical"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.1",
+    "@types/ws": "^8.5.14",
+    "typescript": "^5.7.3",
+    "ws": "^8.18.0"
+  }
+}
