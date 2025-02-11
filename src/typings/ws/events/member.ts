@@ -1,3 +1,4 @@
+import { SocialLink } from "../../payloads";
 import { ServerMemberBanPayload, ServerMemberPayload } from "../../payloads/member";
 
 export type ServerMemberJoinedPayload = {
@@ -21,4 +22,27 @@ export type ServerMemberBannedPayload = {
 export type ServerMemberUnbannedPayload = {
     serverId: string;
     serverMemberBan: ServerMemberBanPayload;
+};
+
+export type ServerMemberUpdatedPayload = {
+    serverId: string;
+    userInfo: {
+        id: string;
+        nickname?: string;
+    };
+};
+
+export type ServerMemberSocialLinkCreatedPayload = {
+    serverId: string;
+    socialLink: SocialLink;
+};
+
+export type ServerMemberSocialLinkUpdatedPayload = {
+    serverId: string;
+    socialLink: SocialLink;
+};
+
+export type ServerMemberSocialLinkDeletedPayload = {
+    serverId: string;
+    socialLink: SocialLink;
 };

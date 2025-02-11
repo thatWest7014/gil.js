@@ -1,6 +1,6 @@
 import EventEmitter from "node:events";
 import { WebSocketManager } from "../gateway/WebSocketManager";
-import { ClientUserPayload } from "../typings/payloads/user";
+import { ClientUserPayload, SocialLink } from "../typings/payloads/user";
 import { ClientUser } from "./User";
 import { WebSocketEvent } from "../typings/ws/events";
 import { handleWSEvent } from "../gateway/handler";
@@ -9,6 +9,9 @@ import { Server } from "./Server";
 import { Member } from "./Member";
 import { ServersManager } from "../managers/ServersManager";
 import { Ban } from "./Ban";
+import { Channel } from "./Channel";
+import { ChannelsManager } from "../managers/ChannelsManager";
+import { Webhook } from "./Webhook";
 
 /**
  * The main hub for interacting with the Guilded API.
@@ -19,7 +22,10 @@ export class Client extends EventEmitter {
     /** The client's user. */
     user: ClientUser | null = null;
     
+    /** The servers manager. */
     servers: ServersManager;
+    /** The channels manager. */
+    channels: ChannelsManager;
 
     /**
      * @param options Options for the client.
@@ -32,6 +38,7 @@ export class Client extends EventEmitter {
         });
 
         this.servers = new ServersManager(this);
+        this.channels = new ChannelsManager(this);
     };
 
     /** Login to the Guilded bot. */
@@ -80,4 +87,11 @@ export type ClientEvents = {
     memberRemoved: [userId: string, serverId: string, kicked: boolean, banned: boolean];
     memberBanned: [ban: Ban, serverId: string];
     memberUnbanned: [ban: Ban, serverId: string];
+    memberUpdated: [member: { serverId: string, userId: string, nickname?: string, socialLink?: SocialLink }];
+    membersRolesUpdated: [serverId: string, members: { userId: string, roleIds: number[] }[]];
+    channelCreated: [channel: Channel];
+    channelUpdated: [channel: Channel];
+    channelDeleted: [channel: Channel];
+    webhookCreated: [webhook: Webhook];
+    webhookUpdated: [webhook: Webhook];
 };

@@ -3,6 +3,7 @@ import { WebSocketEvent } from "../typings/ws/events";
 import * as server from "./events/server";
 import * as message from "./events/message";
 import * as member from "./events/member";
+import * as channel from "./events/channel";
 
 /**
  * Credit: Guilded.TS
@@ -20,6 +21,16 @@ const WSEventHandler: {
     [WebSocketEvent.ServerMemberRemoved]: member.removed,
     [WebSocketEvent.ServerMemberBanned]: member.banned,
     [WebSocketEvent.ServerMemberUnbanned]: member.unbanned,
+    [WebSocketEvent.ServerMemberUpdated]: member.updated,
+    [WebSocketEvent.ServerRolesUpdated]: server.rolesUpdated,
+    [WebSocketEvent.ServerChannelCreated]: channel.created,
+    [WebSocketEvent.ServerChannelUpdated]: channel.updated,
+    [WebSocketEvent.ServerChannelDeleted]: channel.deleted,
+    [WebSocketEvent.ServerMemberSocialLinkCreated]: member.socialLinkCreated,
+    [WebSocketEvent.ServerMemberSocialLinkUpdated]: member.socialLinkUpdated,
+    [WebSocketEvent.ServerMemberSocialLinkDeleted]: member.socialLinkDeleted,
+    [WebSocketEvent.ServerWebhookCreated]: server.webhookCreated,
+    [WebSocketEvent.ServerWebhookUpdated]: server.webhookUpdated,
 };
 
 export const handleWSEvent = (event: WebSocketEvent, data: any, client: Client) => {

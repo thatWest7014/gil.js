@@ -9,3 +9,11 @@ export type BotServerMembershipDeletedPayload = {
     server: ServerPayload;
     deletedBy: string;
 };
+
+export type ServerRolesUpdatedPayload = {
+    serverId: string;
+    memberRoleIds: {
+        userId: string;
+        roleIds: number[];
+    }[];
+};
