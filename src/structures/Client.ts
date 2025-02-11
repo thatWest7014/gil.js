@@ -3,7 +3,7 @@ import { WebSocketManager } from "../gateway/WebSocketManager";
 import { ClientUserPayload } from "../typings/payloads/user";
 import { ClientUser } from "./User";
 import { WebSocketEvent } from "../typings/ws/events";
-import { handleWSEvent } from "../gateway";
+import { handleWSEvent } from "../gateway/handler";
 import { Message } from "./Message";
 import { Server } from "./Server";
 import { Member } from "./Member";
