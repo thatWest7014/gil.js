@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "docs": "typedoc"
+    "docs": "typedoc --out docs/content"
   },
   "keywords": [
     "guilded",
