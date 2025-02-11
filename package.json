@@ -34,5 +34,9 @@
   },
   "dependencies": {
     "@discordjs/collection": "^2.1.1"
-  }
+  },
+  "files": [
+    "package.json",
+    "dist"
+  ]
 }
