@@ -4,6 +4,10 @@ import * as server from "./events/server";
 import * as message from "./events/message";
 import * as member from "./events/member";
 import * as channel from "./events/channel";
+import * as doc from "./events/doc";
+import * as calendarEvent from "./events/calendar-event";
+import * as forumTopic from "./events/forum-topic";
+import * as listItem from "./events/list-item";
 
 /**
  * Credit: Guilded.TS
@@ -31,6 +35,40 @@ const WSEventHandler: {
     [WebSocketEvent.ServerMemberSocialLinkDeleted]: member.socialLinkDeleted,
     [WebSocketEvent.ServerWebhookCreated]: server.webhookCreated,
     [WebSocketEvent.ServerWebhookUpdated]: server.webhookUpdated,
+    [WebSocketEvent.DocCreated]: doc.created,
+    [WebSocketEvent.DocUpdated]: doc.updated,
+    [WebSocketEvent.DocDeleted]: doc.deleted,
+    [WebSocketEvent.DocCommentCreated]: doc.commentCreated,
+    [WebSocketEvent.DocCommentDeleted]: doc.commentDeleted,
+    [WebSocketEvent.DocCommentUpdated]: doc.commentUpdated,
+    [WebSocketEvent.CalendarEventCreated]: calendarEvent.created,
+    [WebSocketEvent.CalendarEventUpdated]: calendarEvent.updated,
+    [WebSocketEvent.CalendarEventDeleted]: calendarEvent.deleted,
+    [WebSocketEvent.ForumTopicCreated]: forumTopic.created,
+    [WebSocketEvent.ForumTopicUpdated]: forumTopic.updated,
+    [WebSocketEvent.ForumTopicDeleted]: forumTopic.deleted,
+    [WebSocketEvent.ForumTopicPinned]: forumTopic.pinned,
+    [WebSocketEvent.ForumTopicUnpinned]: forumTopic.unpinned,
+    [WebSocketEvent.ForumTopicReactionCreated]: forumTopic.reactionCreated,
+    [WebSocketEvent.ForumTopicReactionDeleted]: forumTopic.reactionDeleted,
+    [WebSocketEvent.ForumTopicLocked]: forumTopic.locked,
+    [WebSocketEvent.ForumTopicUnlocked]: forumTopic.unlocked,
+    [WebSocketEvent.ForumTopicCommentCreated]: forumTopic.commentCreated,
+    [WebSocketEvent.ForumTopicCommentUpdated]: forumTopic.commentUpdated,
+    [WebSocketEvent.ForumTopicCommentDeleted]: forumTopic.commentDeleted,
+    [WebSocketEvent.CalendarEventRsvpUpdated]: calendarEvent.rsvpUpdated,
+    [WebSocketEvent.CalendarEventRsvpManyUpdated]: calendarEvent.rsvpManyUpdated,
+    [WebSocketEvent.CalendarEventRsvpDeleted]: calendarEvent.rsvpDeleted,
+    [WebSocketEvent.ListItemCreated]: listItem.created,
+    [WebSocketEvent.ListItemUpdated]: listItem.updated,
+    [WebSocketEvent.ListItemDeleted]: listItem.deleted,
+    [WebSocketEvent.ListItemCompleted]: listItem.completed,
+    [WebSocketEvent.ListItemUncompleted]: listItem.uncompleted,
+    [WebSocketEvent.ChannelMessageReactionCreated]: message.reactionCreated,
+    [WebSocketEvent.ChannelMessageReactionDeleted]: message.reactionDeleted,
+    [WebSocketEvent.ChannelMessageReactionManyDeleted]: message.reactionDeletedMany,
+    [WebSocketEvent.ForumTopicCommentReactionCreated]: forumTopic.commentReactionCreated,
+    [WebSocketEvent.ForumTopicCommentReactionDeleted]: forumTopic.commentReactionDeleted,
 };
 
 export const handleWSEvent = (event: WebSocketEvent, data: any, client: Client) => {

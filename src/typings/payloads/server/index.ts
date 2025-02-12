@@ -1,5 +1,6 @@
 export * from "./channel";
 export * from "./webhook";
+export * from "./channel";
 
 export type ServerPayload = {
     id: string;

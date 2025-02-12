@@ -29,3 +29,21 @@ export enum MessageType {
     Default = "default",
     System = "system",
 };
+
+export type EmotePayload = {
+    id: string;
+    name: string;
+    url: string;
+    serverId?: string;
+};
+
+/** Reaction */
+
+export type MessageReactionPayload = {
+    channelId: string;
+    createdBy?: string;
+    emote?: EmotePayload;
+    messageId: string;
+
+    deletedBy?: string;
+};

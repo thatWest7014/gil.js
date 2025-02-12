@@ -14,5 +14,5 @@ export const updated = (data: ServerChannelUpdatedPayload, client: Client) => {
 
 export const deleted = (data: ServerChannelDeletedPayload, client: Client) => {
     const channel = new Channel(data.channel, client);
-    client.emit("channelCreated", channel);
+    client.emit("channelDeleted", channel);
 };

@@ -21,6 +21,8 @@ client.on("ready", () => {
 client.login();
 ```
 
+> Read more at the [documentation](https://gil.js.org)
+
 ## Credits
 - [discord.js](https://discord.js.org) (inspiration)
 - [@discordjs/collection](https://npmjs.com/@discordjs/collection)

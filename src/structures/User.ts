@@ -29,7 +29,9 @@ export class User {
 };
 
 export class ClientUser extends User {
+    /** The ID of the bot. */
     botId: string;
+    /** The ID of the user who created the bot. */
     createdBy: string;
 
     constructor(data: ClientUserPayload, public client: Client) {
