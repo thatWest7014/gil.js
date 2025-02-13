@@ -1,4 +1,4 @@
-import { UserPayload, UserSummaryPayload } from "./user";
+import { UserPayload, UserSummaryPayload } from "../user";
 
 export interface ServerMemberPayload extends ServerMemberSummaryPayload {
     user: UserPayload;

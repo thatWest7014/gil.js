@@ -1,6 +1,6 @@
 {
   "name": "gil.js",
-  "version": "0.1.9",
+  "version": "0.2.0",
   "description": "A powerful Node.js library for interacting with the Guilded API.",
   "type": "commonjs",
   "main": "dist/index.js",
@@ -13,7 +13,7 @@
     "guilded",
     "guilded-api"
   ],
-  "homepage": "https://github.com/imskeptical/gil.js#readme",
+  "homepage": "https://gil.js.org",
   "bugs": {
     "url": "https://github.com/imskeptical/gil.js/issues"
   },

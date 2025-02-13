@@ -1,12 +1,18 @@
 import { Client } from "../../structures/Client";
-import { Doc } from "../../structures/Doc";
-import { DocComment } from "../../structures/DocComment";
+import { Doc } from "../../structures/doc/Doc";
+import { DocComment } from "../../structures/doc/DocComment";
+import { DocCommentReaction } from "../../structures/doc/DocCommentReaction";
+import { DocReaction } from "../../structures/doc/DocReaction";
 import { 
     DocCommentCreatedPayload,
     DocCommentDeletedPayload,
+    DocCommentReactionCreatedPayload,
+    DocCommentReactionDeletedPayload,
     DocCommentUpdatedPayload,
     DocCreatedPayload, 
-    DocDeletedPayload, 
+    DocDeletedPayload,
+    DocReactionCreatedPayload,
+    DocReactionDeletedPayload,
     DocUpdatedPayload 
 } from "../../typings/ws/events/channel/doc";
 
@@ -38,4 +44,28 @@ export const commentDeleted = (data: DocCommentDeletedPayload, client: Client) =
 export const commentUpdated = (data: DocCommentUpdatedPayload, client: Client) => {
     const comment = new DocComment(data.docComment, client);
     client.emit("docCommentUpdated", comment);
+};
+
+/** Reaction */
+
+export const reactionCreated = (data: DocReactionCreatedPayload, client: Client) => {
+    const reaction = new DocReaction(data.reaction, client);
+    client.emit("docReact", reaction, data.serverId);
+};
+
+export const reactionDeleted = (data: DocReactionDeletedPayload, client: Client) => {
+    const reaction = new DocReaction(data.reaction, client);
+    client.emit("docUnreact", reaction, data.serverId);
+};
+
+/** Comment Reaction */
+
+export const commentReactionCreated = (data: DocCommentReactionCreatedPayload, client: Client) => {
+    const reaction = new DocCommentReaction(data.reaction, client);
+    client.emit("docCommentReact", reaction, data.serverId);
+};
+
+export const commentReactionDeleted = (data: DocCommentReactionDeletedPayload, client: Client) => {
+    const reaction = new DocCommentReaction(data.reaction, client);
+    client.emit("docCommentUnreact", reaction, data.serverId);
 };

@@ -7,21 +7,40 @@ import { handleWSEvent } from "../gateway/handler";
 import { Message } from "./Message";
 import { Server } from "./Server";
 import { Member } from "./Member";
-import { ServersManager } from "../managers/ServersManager";
+import { ServerManager } from "../managers/ServerManager";
 import { Ban } from "./Ban";
 import { Channel } from "./Channel";
-import { ChannelsManager } from "../managers/ChannelsManager";
+import { ChannelManager } from "../managers/ChannelManager";
 import { Webhook } from "./Webhook";
-import { Doc } from "./Doc";
-import { DocComment } from "./DocComment";
-import { CalendarEvent } from "./CalendarEvent";
-import { ForumTopic } from "./ForumTopic";
-import { ForumTopicComment } from "./ForumTopicComment";
-import { ForumTopicReaction } from "./ForumTopicReaction";
-import { CalendarEventRsvp } from "./CalendarEventRsvp";
+import { Doc } from "./doc/Doc";
+import { DocComment } from "./doc/DocComment";
+import { CalendarEvent } from "./calendar/CalendarEvent";
+import { ForumTopic } from "./forum/ForumTopic";
+import { ForumTopicComment } from "./forum/ForumTopicComment";
+import { ForumTopicReaction } from "./forum/ForumTopicReaction";
+import { CalendarEventRsvp } from "./calendar/CalendarEventRsvp";
 import { ListItem } from "./ListItem";
 import { MessageReaction } from "./MessageReaction";
-import { ForumTopicCommentReaction } from "./ForumTopicCommentReaction";
+import { ForumTopicCommentReaction } from "./forum/ForumTopicCommentReaction";
+import { CalendarEventComment } from "./calendar/CalendarEventComment";
+import { CalendarEventReaction } from "./calendar/CalendarEventReaction";
+import { CalendarEventCommentReaction } from "./calendar/CalendarEventCommentReaction";
+import { DocReaction } from "./doc/DocReaction";
+import { DocCommentReaction } from "./doc/DocCommentReaction";
+import { CalendarEventSeries } from "./calendar/CalendarEventSeries";
+import { Group } from "./Group";
+import { GroupManager } from "../managers/GroupManager";
+import { Announcement } from "./announcement/Announcement";
+import { AnnouncementReaction } from "./announcement/AnnouncementReaction";
+import { AnnouncementComment } from "./announcement/AnnouncementComment";
+import { AnnouncementCommentReaction } from "./announcement/AnnouncementCommentReaction";
+import { UserStatus } from "./UserStatus";
+import { Role } from "./Role";
+import { Category } from "./Category";
+import { ChannelRolePermission } from "./ChannelRolePermission";
+import { ChannelUserPermission } from "./ChannelUserPermission";
+import { CategoryRolePermission } from "./CategoryRolePermission";
+import { CategoryUserPermission } from "./CategoryUserPermission";
 
 /**
  * The main hub for interacting with the Guilded API.
@@ -33,9 +52,11 @@ export class Client extends EventEmitter {
     user: ClientUser | null = null;
     
     /** The servers manager. */
-    servers: ServersManager;
+    servers: ServerManager;
+    /** The groups manager. */
+    groups: GroupManager;
     /** The channels manager. */
-    channels: ChannelsManager;
+    channels: ChannelManager;
 
     /**
      * @param options Options for the client.
@@ -47,8 +68,9 @@ export class Client extends EventEmitter {
             token: options.token,
         });
 
-        this.servers = new ServersManager(this);
-        this.channels = new ChannelsManager(this);
+        this.servers = new ServerManager(this);
+        this.groups = new GroupManager(this);
+        this.channels = new ChannelManager(this);
     };
 
     /** Login to the Guilded bot. */
@@ -136,4 +158,54 @@ export type ClientEvents = {
     messageUnreact: [reaction: MessageReaction, serverId: string, count: number];
     forumTopicCommentReact: [reaction: ForumTopicCommentReaction, serverId: string];
     forumTopicCommentUnreact: [reaction: ForumTopicCommentReaction, serverId: string];
+    calendarEventCommentCreated: [comment: CalendarEventComment, serverId: string];
+    calendarEventCommentUpdated: [comment: CalendarEventComment, serverId: string];
+    calendarEventCommentDeleted: [comment: CalendarEventComment, serverId: string];
+    calendarEventReact: [reaction: CalendarEventReaction, serverId: string];
+    calendarEventUnreact: [reaction: CalendarEventReaction, serverId: string];
+    calendarEventCommentReact: [reaction: CalendarEventCommentReaction, serverId: string];
+    calendarEventCommentUnreact: [reaction: CalendarEventCommentReaction, serverId: string];
+    docReact: [reaction: DocReaction, serverId: string];
+    docUnreact: [reaction: DocReaction, serverId: string];
+    docCommentReact: [reaction: DocCommentReaction, serverId: string];
+    docCommentUnreact: [reaction: DocCommentReaction, serverId: string];
+    calendarEventSeriesUpdated: [series: CalendarEventSeries, eventId?: number];
+    calendarEventSeriesDeleted: [series: CalendarEventSeries, eventId?: number];
+    groupCreated: [group: Group];
+    groupUpdated: [group: Group];
+    groupDeleted: [group: Group];
+    announcementCreated: [announcement: Announcement];
+    announcementUpdated: [announcement: Announcement];
+    announcementDeleted: [announcement: Announcement];
+    announcementReact: [reaction: AnnouncementReaction];
+    announcementUnreact: [reaction: AnnouncementReaction];
+    announcementCommentCreated: [comment: AnnouncementComment];
+    announcementCommentUpdated: [comment: AnnouncementComment];
+    announcementCommentDeleted: [comment: AnnouncementComment];
+    announcementCommentReact: [reaction: AnnouncementCommentReaction];
+    announcementCommentUnreact: [reaction: AnnouncementCommentReaction];
+    userStatusCreated: [status: UserStatus, userId: string, expiresAt?: Date];
+    userStatusDeleted: [status: UserStatus, userId: string];
+    roleCreated: [role: Role];
+    roleUpdated: [role: Role];
+    roleDeleted: [role: Role];
+    channelArchived: [channel: Channel];
+    channelRestored: [channel: Channel];
+    categoryCreated: [category: Category];
+    categoryUpdated: [category: Category];
+    categoryDeleted: [category: Category];
+    messagePinned: [message: Message];
+    messageUnpinned: [message: Message];
+    channelRolePermissionCreated: [rolePermission: ChannelRolePermission];
+    channelRolePermissionUpdated: [rolePermission: ChannelRolePermission];
+    channelRolePermissionDeleted: [rolePermission: ChannelRolePermission];
+    channelUserPermissionCreated: [userPermission: ChannelUserPermission];
+    channelUserPermissionUpdated: [userPermission: ChannelUserPermission];
+    channelUserPermissionDeleted: [userPermission: ChannelUserPermission];
+    categoryRolePermissionCreated: [rolePermission: CategoryRolePermission];
+    categoryRolePermissionUpdated: [rolePermission: CategoryRolePermission];
+    categoryRolePermissionDeleted: [rolePermission: CategoryRolePermission];
+    categoryUserPermissionCreated: [userPermission: CategoryUserPermission];
+    categoryUserPermissionUpdated: [userPermission: CategoryUserPermission];
+    categoryUserPermissionDeleted: [userPermission: CategoryUserPermission];
 };

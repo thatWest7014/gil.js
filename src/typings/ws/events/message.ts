@@ -36,3 +36,13 @@ export type ChannelMessageReactionManyDeleted = {
     count: number;
     emote?: EmotePayload;
 };
+
+export type ChannelMessagePinnedPayload = {
+    serverId: string;
+    message: MessagePayload;
+};
+
+export type ChannelMessageUnpinnedPayload = {
+    serverId: string;
+    message: MessagePayload;
+};

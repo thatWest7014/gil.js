@@ -1,5 +1,6 @@
 import { ClientUserPayload, UserPayload, UserStatusPayload, UserType } from "../typings/payloads/user";
 import { Client } from "./Client";
+import { UserStatus } from "./UserStatus";
 
 export class User {
     /** The ID of the user. */
@@ -15,7 +16,7 @@ export class User {
     /** The user's account creation date. */
     createdAt: Date;
     /** The status of the user. */
-    status?: UserStatusPayload;
+    status?: UserStatus;
 
     constructor(data: UserPayload, public client: Client) {
         this.id = data.id;
@@ -24,7 +25,7 @@ export class User {
         this.avatar = data.avatar;
         this.banner = data.banner;
         this.createdAt = new Date(data.createdAt);
-        this.status = data.status;
+        this.status = data.status ? new UserStatus(data.status, client) : undefined;
     };
 };
 

@@ -2,6 +2,7 @@ export * from "./doc";
 export * from "./calendar";
 export * from "./forum";
 export * from "./list";
+export * from "./announcement";
 
 export type ServerChannelPayload = {
     id: string;
@@ -39,4 +40,22 @@ export enum ServerChannelType {
 export enum ServerChannelVisibility {
     Private = "private",
     Public = "public",
+};
+
+// Permissions
+
+export type ChannelRolePermissionPayload = {
+    permissions: object;
+    createdAt: string;
+    updatedAt?: string;
+    roleId: number;
+    channelId: string;
+};
+
+export type ChannelUserPermissionPayload = {
+    permissions: object;
+    createdAt: string;
+    updatedAt?: string;
+    userId: string;
+    channelId: string;
 };

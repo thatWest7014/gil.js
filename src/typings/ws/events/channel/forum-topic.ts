@@ -1,4 +1,4 @@
-import { ForumTopicReaction } from "../../../../structures/ForumTopicReaction";
+import { ForumTopicReaction } from "../../../../structures/forum/ForumTopicReaction";
 import { ForumTopicCommentPayload, ForumTopicCommentReactionPayload, ForumTopicPayload } from "../../../payloads";
 
 export type ForumTopicCreatedPayload = {

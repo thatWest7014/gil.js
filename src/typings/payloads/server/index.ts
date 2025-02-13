@@ -1,6 +1,8 @@
 export * from "./channel";
 export * from "./webhook";
 export * from "./channel";
+export * from "./member";
+export * from "./category";
 
 export type ServerPayload = {
     id: string;
@@ -26,4 +28,23 @@ export enum ServerType {
     Friends = "friends",
     Streaming = "streaming",
     Other = "other",
+};
+
+/** Role */
+
+export type RolePayload = {
+    id: number;
+    serverId: string;
+    createdAt: string;
+    updatedAt?: string;
+    name: string;
+    isDisplayedSeparately?: boolean;
+    isSelfAssignable?: boolean;
+    isMentionable?: boolean;
+    permissions: string[];
+    colors?: number[];
+    icon?: string;
+    priority?: number;
+    isBase?: boolean;
+    botUserId?: string;
 };

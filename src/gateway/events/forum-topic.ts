@@ -1,8 +1,8 @@
 import { Client } from "../../structures/Client";
-import { ForumTopic } from "../../structures/ForumTopic";
-import { ForumTopicComment } from "../../structures/ForumTopicComment";
-import { ForumTopicCommentReaction } from "../../structures/ForumTopicCommentReaction";
-import { ForumTopicReaction } from "../../structures/ForumTopicReaction";
+import { ForumTopic } from "../../structures/forum/ForumTopic";
+import { ForumTopicComment } from "../../structures/forum/ForumTopicComment";
+import { ForumTopicCommentReaction } from "../../structures/forum/ForumTopicCommentReaction";
+import { ForumTopicReaction } from "../../structures/forum/ForumTopicReaction";
 import { 
     ForumTopicCommentCreatedPayload,
     ForumTopicCommentDeletedPayload,

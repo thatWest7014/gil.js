@@ -1,4 +1,4 @@
-import { ServerPayload } from "../../payloads";
+import { RolePayload, ServerPayload } from "../../payloads";
 
 export type BotServerMembershipCreatedPayload = {
     server: ServerPayload;
@@ -16,4 +16,21 @@ export type ServerRolesUpdatedPayload = {
         userId: string;
         roleIds: number[];
     }[];
+};
+
+/** Role */
+
+export type RoleCreatedPayload = {
+    serverId: string;
+    role: RolePayload;
+};
+
+export type RoleUpdatedPayload = {
+    serverId: string;
+    role: RolePayload;
+};
+
+export type RoleDeletedPayload = {
+    serverId: string;
+    role: RolePayload;
 };

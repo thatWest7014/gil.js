@@ -8,6 +8,8 @@ import {
     ChannelMessageReactionCreated,
     ChannelMessageReactionManyDeleted,
     ChannelMessageReactionDeleted,
+    ChannelMessagePinnedPayload,
+    ChannelMessageUnpinnedPayload,
 } from "../../typings";
 
 export const created = (data: ChatMessageCreatedPayload, client: Client) => {
@@ -46,4 +48,14 @@ export const reactionDeletedMany = (data: ChannelMessageReactionManyDeleted, cli
     }, client);
 
     client.emit("messageUnreact", reaction, data.serverId, data.count);
+};
+
+export const pinned = (data: ChannelMessagePinnedPayload, client: Client) => {
+    const message = new Message(data.message, client);
+    client.emit("messagePinned", message);
+};
+
+export const unpinned = (data: ChannelMessageUnpinnedPayload, client: Client) => {
+    const message = new Message(data.message, client);
+    client.emit("messageUnpinned", message);
 };

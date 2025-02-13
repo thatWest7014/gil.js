@@ -8,6 +8,11 @@ import * as doc from "./events/doc";
 import * as calendarEvent from "./events/calendar-event";
 import * as forumTopic from "./events/forum-topic";
 import * as listItem from "./events/list-item";
+import * as group from "./events/group";
+import * as announcement from "./events/announcement";
+import * as user from "./events/user";
+import * as role from "./events/role";
+import * as category from "./events/category";
 
 /**
  * Credit: Guilded.TS
@@ -69,6 +74,56 @@ const WSEventHandler: {
     [WebSocketEvent.ChannelMessageReactionManyDeleted]: message.reactionDeletedMany,
     [WebSocketEvent.ForumTopicCommentReactionCreated]: forumTopic.commentReactionCreated,
     [WebSocketEvent.ForumTopicCommentReactionDeleted]: forumTopic.commentReactionDeleted,
+    [WebSocketEvent.CalendarEventCommentCreated]: calendarEvent.commentCreated,
+    [WebSocketEvent.CalendarEventCommentUpdated]: calendarEvent.commentUpdated,
+    [WebSocketEvent.CalendarEventCommentDeleted]: calendarEvent.commentDeleted,
+    [WebSocketEvent.CalendarEventReactionCreated]: calendarEvent.reactionCreated,
+    [WebSocketEvent.CalendarEventReactionDeleted]: calendarEvent.reactionDeleted,
+    [WebSocketEvent.CalendarEventCommentReactionCreated]: calendarEvent.commentReactionCreated,
+    [WebSocketEvent.CalendarEventCommentReactionDeleted]: calendarEvent.commentReactionDeleted,
+    [WebSocketEvent.DocReactionCreated]: doc.reactionCreated,
+    [WebSocketEvent.DocReactionDeleted]: doc.reactionDeleted,
+    [WebSocketEvent.DocCommentReactionCreated]: doc.commentReactionCreated,
+    [WebSocketEvent.DocCommentReactionDeleted]: doc.commentReactionDeleted,
+    [WebSocketEvent.CalendarEventSeriesUpdated]: calendarEvent.seriesUpdated,
+    [WebSocketEvent.CalendarEventSeriesDeleted]: calendarEvent.seriesDeleted,
+    [WebSocketEvent.GroupCreated]: group.created,
+    [WebSocketEvent.GroupUpdated]: group.updated,
+    [WebSocketEvent.GroupDeleted]: group.deleted,
+    [WebSocketEvent.AnnouncementCreated]: announcement.created,
+    [WebSocketEvent.AnnouncementUpdated]: announcement.updated,
+    [WebSocketEvent.AnnouncementDeleted]: announcement.deleted,
+    [WebSocketEvent.AnnouncementReactionCreated]: announcement.reactionCreated,
+    [WebSocketEvent.AnnouncementReactionDeleted]: announcement.reactionDeleted,
+    [WebSocketEvent.AnnouncementCommentCreated]: announcement.commentCreated,
+    [WebSocketEvent.AnnouncementCommentUpdated]: announcement.commentUpdated,
+    [WebSocketEvent.AnnouncementCommentDeleted]: announcement.commentDeleted,
+    [WebSocketEvent.AnnouncementCommentReactionCreated]: announcement.commentReactionCreated,
+    [WebSocketEvent.AnnouncementCommentReactionDeleted]: announcement.commentReactionDeleted,
+    [WebSocketEvent.UserStatusCreated]: user.statusCreated,
+    [WebSocketEvent.UserStatusDeleted]: user.statusDeleted,
+    [WebSocketEvent.RoleCreated]: role.created,
+    [WebSocketEvent.RoleUpdated]: role.updated,
+    [WebSocketEvent.RoleDeleted]: role.deleted,
+    [WebSocketEvent.ChannelArchived]: channel.archived,
+    [WebSocketEvent.ChannelRestored]: channel.restored,
+    [WebSocketEvent.CategoryCreated]: category.created,
+    [WebSocketEvent.CategoryUpdated]: category.updated,
+    [WebSocketEvent.CategoryDeleted]: category.deleted,
+    [WebSocketEvent.ChannelMessagePinned]: message.pinned,
+    [WebSocketEvent.ChannelMessageUnpinned]: message.unpinned,
+    [WebSocketEvent.ChannelRolePermissionCreated]: channel.rolePermissionCreated,
+    [WebSocketEvent.ChannelRolePermissionUpdated]: channel.rolePermissionUpdated,
+    [WebSocketEvent.ChannelRolePermissionDeleted]: channel.rolePermissionDeleted,
+    [WebSocketEvent.ChannelUserPermissionCreated]: channel.userPermissionCreated,
+    [WebSocketEvent.ChannelUserPermissionUpdated]: channel.userPermissionUpdated,
+    [WebSocketEvent.ChannelUserPermissionDeleted]: channel.userPermissionDeleted,
+    [WebSocketEvent.ChannelCategoryRolePermissionCreated]: category.rolePermissionCreated,
+    [WebSocketEvent.ChannelCategoryRolePermissionUpdated]: category.rolePermissionUpdated,
+    [WebSocketEvent.ChannelCategoryRolePermissionDeleted]: category.rolePermissionDeleted,
+    [WebSocketEvent.ChannelCategoryUserPermissionCreated]: category.userPermissionCreated,
+    [WebSocketEvent.ChannelCategoryUserPermissionUpdated]: category.userPermissionUpdated,
+    [WebSocketEvent.ChannelCategoryUserPermissionDeleted]: category.userPermissionDeleted,
 };
 
 export const handleWSEvent = (event: WebSocketEvent, data: any, client: Client) => {

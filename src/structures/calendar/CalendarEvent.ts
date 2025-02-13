@@ -1,5 +1,5 @@
-import { CalendarEventCancellationPayload, CalendarEventPayload, MentionsPayload } from "../typings";
-import { Client } from "./Client";
+import { CalendarEventCancellationPayload, CalendarEventPayload, MentionsPayload } from "../../typings";
+import { Client } from "../Client";
 
 export class CalendarEvent {
     /** The ID of the calendar event. */

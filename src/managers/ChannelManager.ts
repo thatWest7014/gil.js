@@ -1,9 +1,9 @@
 import { Collection } from "@discordjs/collection";
-import { Server } from "../structures/Server";
 import { Client } from "../structures/Client";
+import { Channel } from "../structures/Channel";
 
-export class ServersManager {
-    cache: Collection<string, Server> = new Collection();
+export class ChannelManager {
+    cache: Collection<string, Channel> = new Collection();
 
     constructor(public client: Client) {}
 };

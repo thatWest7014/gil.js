@@ -1,5 +1,5 @@
 import { SocialLink } from "../../payloads";
-import { ServerMemberBanPayload, ServerMemberPayload } from "../../payloads/member";
+import { ServerMemberBanPayload, ServerMemberPayload } from "../../payloads/server/member";
 
 export type ServerMemberJoinedPayload = {
     serverId: string;

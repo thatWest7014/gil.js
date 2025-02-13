@@ -1,4 +1,4 @@
-import { ServerMemberPayload } from "../typings/payloads/member";
+import { ServerMemberPayload } from "../typings/payloads/server/member";
 import { Client } from "./Client";
 import { User } from "./User";
 

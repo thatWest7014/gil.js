@@ -8,6 +8,7 @@ export type GroupPayload = {
     emoteId?: number;
     isPublic?: boolean;
     createdAt: string;
+    createdBy: string;
     updatedAt?: string;
     updatedBy?: string;
     archivedAt?: string;
