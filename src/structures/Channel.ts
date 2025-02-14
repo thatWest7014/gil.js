@@ -1,3 +1,4 @@
+import { SendMessageOptions } from "../managers/MessageManager";
 import { ServerChannelPayload, ServerChannelType, ServerChannelVisibility } from "../typings";
 import { Client } from "./Client";
 
@@ -56,6 +57,26 @@ export class Channel {
         this.archivedAt = data.archivedAt ? new Date(data.archivedAt) : undefined;
         this.priority = data.priority;
 
-        client.channels.cache.set(this.id, this);
+        this.client.channels.cache.set(this.id, this);
+    };
+
+    /**
+     * Fetch this Guilded channel.
+     */
+    async fetch() {
+        return await this.client.channels.fetch(this.id);
+    };
+
+    /**
+     * Send a message in this channel.
+     * @param data Message data.
+     */
+    async send(data: SendMessageOptions) {
+        return await this.client.messages.create(this.id, data);
+    };
+
+    /** Fetch all messages in this Guilded channel. */
+    async fetchAllMessages() {
+        return await this.client.messages.fetchAll(this.id);
     };
 };

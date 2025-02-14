@@ -3,6 +3,7 @@ import WebSocket from "ws";
 import { WebSocketOpCode, WebSocketPayload, WebSocketWelcomeData } from "../typings/ws";
 import { ClientUserPayload } from "../typings/payloads/user";
 import { WebSocketEvent } from "../typings/ws/events";
+import packageInfo from "../../package.json";
 
 export class WebSocketManager extends EventEmitter {
     /** The socket. */
@@ -26,6 +27,7 @@ export class WebSocketManager extends EventEmitter {
         this.socket = new WebSocket(this.url, {
             headers: {
                 Authorization: `Bearer ${this.options.token}`,
+                "User-Agent": `gil.js@${packageInfo.version} Node.js@${process.versions.node}`,
                 "guilded-last-message-id": this.lastMessageId || "",
             },
         });

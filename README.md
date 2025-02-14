@@ -24,8 +24,7 @@ client.login();
 > Read more at the [documentation](https://gil.js.org)
 
 ## Credits
-- [discord.js](https://discord.js.org) (inspiration)
-- [@discordjs/collection](https://npmjs.com/@discordjs/collection)
+- Inspired by [discord.js](https://discord.js.org)
 
 # Warning
 - This library is **not** yet complete. There is a lot of the Guilded API still to cover!

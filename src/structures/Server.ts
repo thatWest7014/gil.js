@@ -41,6 +41,51 @@ export class Server {
         this.defaultChannelId = data.defaultChannelId;
         this.createdAt = new Date(data.createdAt);
 
-        client.servers.cache.set(this.id, this);
+        this.client.servers.cache.set(this.id, this);
+    };
+
+    /** Fetch this Guilded server. */
+    async fetch() {
+        return await this.client.servers.fetch(this.id);
+    };
+
+    /** Fetch all groups in this Guilded server. */
+    async getAllGroups() {
+        return await this.client.groups.fetchAll(this.id);
+    };
+
+    /** Fetch a group in this Guilded server. */
+    async getGroup(groupId: string) {
+        return this.client.groups.fetch(this.id, groupId);
+    };
+
+    /** Fetch a member in this Guilded server. */
+    async fetchMember(userId: string) {
+        return this.client.members.fetch(this.id, userId);
+    };
+
+    /** Fetch all members in this Guilded server. */
+    async fetchAllMembers() {
+        return this.client.members.fetchAll(this.id);
+    };
+
+    /** Ban a member from this Guilded server. */
+    async ban(userId: string, reason?: string) {
+        return this.client.servers.ban(this.id, userId, reason);
+    };
+
+    /** Unban a member from this Guilded server. */
+    async unban(userId: string) {
+        return this.client.servers.unban(this.id, userId);
+    };
+
+    /** Fetch a ban from this Guilded server. */
+    async fetchBan(userId: string) {
+        return this.client.servers.getBan(this.id, userId);
+    };
+
+    /** Fetch all bans from this Guilded server. */
+    async fetchAllBans() {
+        return this.client.servers.getAllBans(this.id);
     };
 };

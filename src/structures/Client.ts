@@ -41,6 +41,11 @@ import { ChannelRolePermission } from "./ChannelRolePermission";
 import { ChannelUserPermission } from "./ChannelUserPermission";
 import { CategoryRolePermission } from "./CategoryRolePermission";
 import { CategoryUserPermission } from "./CategoryUserPermission";
+import { RESTManager } from "../rest/RESTManager";
+import { CategoryManager } from "../managers/CategoryManager";
+import { MessageManager } from "../managers/MessageManager";
+import { MemberManager } from "../managers/MemberManager";
+import { AnnouncementManager } from "../managers/AnnouncementManager";
 
 /**
  * The main hub for interacting with the Guilded API.
@@ -48,6 +53,8 @@ import { CategoryUserPermission } from "./CategoryUserPermission";
 export class Client extends EventEmitter {
     /** The WebSocket Manager for the client. */
     ws: WebSocketManager;
+    /** The REST Manager for the client. */
+    rest: RESTManager;
     /** The client's user. */
     user: ClientUser | null = null;
     
@@ -57,6 +64,14 @@ export class Client extends EventEmitter {
     groups: GroupManager;
     /** The channels manager. */
     channels: ChannelManager;
+    /** The categories manager. */
+    categories: CategoryManager;
+    /** The messages manager. */
+    messages: MessageManager;
+    /** The members manager. */
+    members: MemberManager;
+    /** The announcements manager. */
+    announcements: AnnouncementManager;
 
     /**
      * @param options Options for the client.
@@ -67,10 +82,17 @@ export class Client extends EventEmitter {
         this.ws = new WebSocketManager({
             token: options.token,
         });
+        this.rest = new RESTManager({
+            token: options.token,
+        });
 
         this.servers = new ServerManager(this);
         this.groups = new GroupManager(this);
         this.channels = new ChannelManager(this);
+        this.categories = new CategoryManager(this);
+        this.messages = new MessageManager(this);
+        this.members = new MemberManager(this);
+        this.announcements = new AnnouncementManager(this);
     };
 
     /** Login to the Guilded bot. */

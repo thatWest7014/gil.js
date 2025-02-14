@@ -37,12 +37,28 @@ export class Group {
         this.avatar = data.avatar;
         this.home = data.isHome || false;
         this.emoteId = data.emoteId;
-        this.public = data.isPublic;
+        this.public = data.isPublic || false;
         this.createdAt = new Date(data.createdAt);
         this.createdBy = data.createdBy;
         this.archivedAt = data.archivedAt ? new Date(data.archivedAt) : undefined;
         this.archivedBy = data.archivedBy;
 
-        client.groups.cache.set(this.id, this);
+        this.client.groups.cache.set(this.id, this);
+    };
+
+    /**
+     * Add a Guilded server member to this Guilded group.
+     * @param userId The ID of the Guilded user.
+     */
+    async addMember(userId: string) {
+        return await this.client.groups.addMember(this.id, userId);
+    };
+
+    /**
+     * Add a Guilded server member to this Guilded group.
+     * @param userId The ID of the Guilded user.
+     */
+    async removeMember(userId: string) {
+        return await this.client.groups.removeMember(this.id, userId);
     };
 };

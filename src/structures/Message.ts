@@ -1,7 +1,10 @@
+import { SendMessageOptions } from "../managers/MessageManager";
 import { MessagePayload, MessageType } from "../typings/payloads/message";
-import { EmbedPayload } from "../typings/payloads/message/embed";
 import { MentionsPayload } from "../typings/payloads/message/mentions";
+import { Channel } from "./Channel";
 import { Client } from "./Client";
+import { Embed } from "./Embed";
+import { Server } from "./Server";
 
 export class Message {
     /** The ID of the message. */
@@ -19,7 +22,7 @@ export class Message {
     /** The hidden link preview URLs of the message. */
     hiddenLinkPreviewUrls?: string[];
     /** The embeds of the message. */
-    embeds?: EmbedPayload[];
+    embeds?: Embed[];
     /** The IDs of the messages which the message was replying to. */
     replyMessageIds?: string[];
     /** Whether the message was privately sent. */
@@ -49,7 +52,7 @@ export class Message {
         this.channelId = data.channelId;
         this.content = data.content;
         this.hiddenLinkPreviewUrls = data.hiddenLinkPreviewUrls || [];
-        this.embeds = data.embeds || [];
+        this.embeds = data.embeds?.map((embed) => new Embed(embed)) || [];
         this.replyMessageIds = data.replyMessageIds || [];
         this.private = data.isPrivate || false;
         this.silent = data.isSilent || false;
@@ -60,5 +63,42 @@ export class Message {
         this.createdByWebhookId = data.createdByWebhookId;
         this.updatedAt = data.updatedAt ? new Date(data.updatedAt) : undefined;
         this.deletedAt = data.deletedAt ? new Date(data.deletedAt) : undefined;
+
+        this.client.messages.cache.set(this.id, this);
+    };
+
+    /**
+     * The Guilded server where this message exists in.
+     */
+    get server(): Server | null {
+        return this.serverId ? this.client.servers.cache.get(this.serverId) || null : null;
+    };
+
+    /**
+     * The Guilded channel where this message exists in.
+     */
+    get channel(): Channel | null {
+        return this.client.channels.cache.get(this.channelId) || null;
+    };
+
+    /**
+     * Reply to this Guilded message.
+     * @param data Message data.
+     */
+    reply(data: SendMessageOptions) {
+        return this.client.messages.create(this.channelId, {
+            replyMessageIds: [this.id],
+            ...data,
+        });
+    };
+
+    /** Pin this Guilded message. */
+    pin() {
+        return this.client.messages.pin(this.channelId, this.id);
+    };
+
+    /** Unpin this Guilded message. */
+    unpin() {
+        return this.client.messages.unpin(this.channelId, this.id);
     };
 };

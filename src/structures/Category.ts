@@ -18,5 +18,7 @@ export class Category {
         this.updatedAt = data.updatedAt ? new Date(data.updatedAt) : undefined;
         this.name = data.name;
         this.priority = data.priority;
+
+        this.client.categories.cache.set(this.id, this);
     };
 };

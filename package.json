@@ -32,9 +32,6 @@
     "typescript": "^5.7.3",
     "ws": "^8.18.0"
   },
-  "dependencies": {
-    "@discordjs/collection": "^2.1.1"
-  },
   "files": [
     "package.json",
     "dist"
