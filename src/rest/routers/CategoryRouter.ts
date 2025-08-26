@@ -1,19 +1,5 @@
-import { CategoryPayload } from "../../typings";
+import { CategoryPayload, CreateCategoryBody, UpdateCategoryBody } from "../../typings";
 import { BaseRouter } from "./BaseRouter";
-
-export type CreateCategoryBody = {
-    /** The name of the category. */
-    name: string;
-    /** The ID of the group where this category exists in. */
-    groupId?: string;
-};
-
-export type UpdateCategoryBody = {
-    /** The name of the category. */
-    name: string;
-    /** The priority of the category. */
-    priority?: number;
-};
 
 export class CategoryRouter extends BaseRouter {
     async create(serverId: string, data: CreateCategoryBody) {

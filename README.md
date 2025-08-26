@@ -21,10 +21,19 @@ client.on("ready", () => {
 client.login();
 ```
 
-> Read more at the [documentation](https://gil.js.org)
+> Read more at the [documentation](https://gil.js.org).
+
+> Support is available at our [Guilded Server](https://guilded.gg/Guildex)!
 
 ## Credits
 - Inspired by [discord.js](https://discord.js.org)
 
 # Warning
 - This library is **not** yet complete. There is a lot of the Guilded API still to cover!
+
+# What's missing?
+*This will not always be an up-to-date list.*
+- Events:
+  - ServerMemberSocialLinkCreated
+  - ServerMemberSocialLinkUpdated
+  - ServerMemberSocialLinkDeleted

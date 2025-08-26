@@ -7,6 +7,7 @@ import { MessageRouter } from "./routers/MessageRouter";
 import { ServerRouter } from "./routers/ServerRouter";
 import packageInfo from "../../package.json";
 import { AnnouncementRouter } from "./routers/AnnouncementRouter";
+import { CalendarEventRouter } from "./routers/CalendarEventRouter";
 
 /** https://www.guilded.gg/docs/api/http_methods */
 export enum RESTMethod {
@@ -27,6 +28,7 @@ export class RESTManager {
     members: MemberRouter;
     bans: BanRouter;
     announcements: AnnouncementRouter;
+    calendarEvents: CalendarEventRouter;
 
     constructor(public options: RESTManagerOptions) {
         this.servers = new ServerRouter(this);
@@ -37,6 +39,7 @@ export class RESTManager {
         this.members = new MemberRouter(this);
         this.bans = new BanRouter(this);
         this.announcements = new AnnouncementRouter(this);
+        this.calendarEvents = new CalendarEventRouter(this);
     };
 
     get version(): number {

@@ -1,5 +1,4 @@
-import { UserSummaryPayload } from "../typings";
-import { ServerMemberBanPayload } from "../typings/payloads/server/member";
+import { UserSummaryPayload, ServerMemberBanPayload } from "../typings";
 import { Client } from "./Client";
 
 export class Ban {

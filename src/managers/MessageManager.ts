@@ -1,6 +1,6 @@
-import { UpdateMessageBody } from "../rest/routers/MessageRouter";
 import { Embed } from "../structures/Embed";
 import { Message } from "../structures/Message";
+import { UpdateMessageBody } from "../typings";
 import { BaseManager } from "./BaseManager";
 
 export type SendMessageOptions = {

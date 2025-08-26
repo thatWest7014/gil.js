@@ -1,6 +1,10 @@
-import { CreateAnnouncementBody, UpdateAnnouncementCommentBody } from "../../rest/routers/AnnouncementRouter";
-import { AnnouncementPayload, MentionsPayload } from "../../typings";
 import { Client } from "../Client";
+import { 
+    AnnouncementPayload, 
+    CreateAnnouncementBody, 
+    MentionsPayload, 
+    UpdateAnnouncementCommentBody 
+} from "../../typings";
 
 export class Announcement {
     id: string;

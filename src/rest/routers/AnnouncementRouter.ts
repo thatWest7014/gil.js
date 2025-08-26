@@ -1,23 +1,12 @@
-import { AnnouncementCommentPayload, AnnouncementPayload } from "../../typings";
 import { BaseRouter } from "./BaseRouter";
-
-export type CreateAnnouncementBody = {
-    title: string;
-    content: string;
-};
-
-export type UpdateAnnouncementBody = {
-    title?: string;
-    content?: string;
-};
-
-export type CreateAnnouncementCommentBody = {
-    content: string;
-};
-
-export type UpdateAnnouncementCommentBody = {
-    content: string;
-};
+import { 
+    AnnouncementCommentPayload, 
+    AnnouncementPayload, 
+    CreateAnnouncementBody, 
+    CreateAnnouncementCommentBody, 
+    UpdateAnnouncementBody, 
+    UpdateAnnouncementCommentBody,
+} from "../../typings";
 
 export class AnnouncementRouter extends BaseRouter {
     async create(channelId: string, body: CreateAnnouncementBody) {

@@ -1,5 +1,8 @@
-import { CalendarEventCommentPayload, MentionsPayload } from "../../typings";
 import { Client } from "../Client";
+import { 
+    CalendarEventCommentPayload, 
+    MentionsPayload 
+} from "../../typings";
 
 export class CalendarEventComment {
     /** The ID of the comment. */

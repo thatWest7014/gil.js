@@ -1,5 +1,5 @@
-import { EmotePayload, ForumTopicReactionPayload } from "../../typings";
 import { Client } from "../Client";
+import { EmotePayload, ForumTopicReactionPayload } from "../../typings";
 
 export class ForumTopicReaction {
     /** The ID of the channel where this reaction exists in. */

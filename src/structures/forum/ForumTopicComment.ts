@@ -1,5 +1,5 @@
-import { ForumTopicCommentPayload, MentionsPayload } from "../../typings";
 import { Client } from "../Client";
+import { ForumTopicCommentPayload, MentionsPayload } from "../../typings";
 
 export class ForumTopicComment {
     /** The ID of the comment. */

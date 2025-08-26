@@ -1,5 +1,5 @@
-import { RolePayload } from "../typings";
 import { Client } from "./Client";
+import { RolePayload } from "../typings";
 
 export class Role {
     id: number;

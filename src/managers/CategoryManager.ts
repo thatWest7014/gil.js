@@ -1,5 +1,5 @@
-import { CreateCategoryBody, UpdateCategoryBody } from "../rest/routers/CategoryRouter";
 import { Category } from "../structures/Category";
+import { CreateCategoryBody, UpdateCategoryBody } from "../typings";
 import { BaseManager } from "./BaseManager";
 
 export class CategoryManager extends BaseManager<number, Category> {

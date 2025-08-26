@@ -1,8 +1,8 @@
 export * from "./channel";
-export * from "./webhook";
-export * from "./channel";
-export * from "./member";
 export * from "./category";
+export * from "./group";
+export * from "./member";
+export * from "./webhook";
 
 export type ServerPayload = {
     id: string;

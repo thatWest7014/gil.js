@@ -31,12 +31,12 @@ export const deleted = (data: ChatMessageDeletedPayload, client: Client) => {
 
 export const reactionCreated = (data: ChannelMessageReactionCreated, client: Client) => {
     const reaction = new MessageReaction(data.reaction, client);
-    client.emit("messageReact", reaction, data.serverId);
+    client.emit("messageReacted", reaction, data.serverId);
 };
 
 export const reactionDeleted = (data: ChannelMessageReactionDeleted, client: Client) => {
     const reaction = new MessageReaction({ ...data.reaction, deletedBy: data.deletedBy }, client);
-    client.emit("messageUnreact", reaction, data.serverId, 1);
+    client.emit("messageUnreacted", reaction, data.serverId, 1);
 };
 
 export const reactionDeletedMany = (data: ChannelMessageReactionManyDeleted, client: Client) => {
@@ -47,7 +47,7 @@ export const reactionDeletedMany = (data: ChannelMessageReactionManyDeleted, cli
         emote: data.emote,
     }, client);
 
-    client.emit("messageUnreact", reaction, data.serverId, data.count);
+    client.emit("messageUnreacted", reaction, data.serverId, data.count);
 };
 
 export const pinned = (data: ChannelMessagePinnedPayload, client: Client) => {

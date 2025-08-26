@@ -1,5 +1,8 @@
-import { CalendarEventRsvpPayload, CalendarEventRsvpStatus } from "../../typings";
 import { Client } from "../Client";
+import { 
+    CalendarEventRsvpPayload, 
+    CalendarEventRsvpStatus 
+} from "../../typings";
 
 export class CalendarEventRsvp {
     /** The ID of this RSVP's calendar event. */

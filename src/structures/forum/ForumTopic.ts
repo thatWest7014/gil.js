@@ -1,5 +1,5 @@
-import { MentionsPayload, ForumTopicPayload } from "../../typings";
 import { Client } from "../Client";
+import { MentionsPayload, ForumTopicPayload } from "../../typings";
 
 export class ForumTopic {
     /** The ID of the forum topic. */

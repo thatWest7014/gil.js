@@ -78,24 +78,24 @@ export const commentDeleted = (data: CalendarEventCommentDeletedPayload, client:
 
 export const reactionCreated = (data: CalendarEventReactionCreatedPayload, client: Client) => {
     const reaction = new CalendarEventReaction(data.reaction, client);
-    client.emit("calendarEventReact", reaction, data.serverId);
+    client.emit("calendarEventReacted", reaction, data.serverId);
 };
 
 export const reactionDeleted = (data: CalendarEventReactionDeletedPayload, client: Client) => {
     const reaction = new CalendarEventReaction(data.reaction, client);
-    client.emit("calendarEventUnreact", reaction, data.serverId);
+    client.emit("calendarEventUnreacted", reaction, data.serverId);
 };
 
 /** Comment Reaction */
 
 export const commentReactionCreated = (data: CalendarEventCommentReactionCreatedPayload, client: Client) => {
     const reaction = new CalendarEventCommentReaction(data.reaction, client);
-    client.emit("calendarEventCommentReact", reaction, data.serverId);
+    client.emit("calendarEventCommentReacted", reaction, data.serverId);
 };
 
 export const commentReactionDeleted = (data: CalendarEventCommentReactionDeletedPayload, client: Client) => {
     const reaction = new CalendarEventCommentReaction(data.reaction, client);
-    client.emit("calendarEventCommentUnreact", reaction, data.serverId);
+    client.emit("calendarEventCommentUnreacted", reaction, data.serverId);
 };
 
 /** Series */

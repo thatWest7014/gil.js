@@ -82,10 +82,10 @@ export const commentDeleted = (data: ForumTopicCommentDeletedPayload, client: Cl
 
 export const commentReactionCreated = (data: ForumTopicCommentReactionCreatedPayload, client: Client) => {
     const reaction = new ForumTopicCommentReaction(data.reaction, client);
-    client.emit("forumTopicCommentReact", reaction, data.serverId);
+    client.emit("forumTopicCommentReacted", reaction, data.serverId);
 };
 
 export const commentReactionDeleted = (data: ForumTopicCommentReactionDeletedPayload, client: Client) => {
     const reaction = new ForumTopicCommentReaction(data.reaction, client);
-    client.emit("forumTopicCommentUnreact", reaction, data.serverId);
+    client.emit("forumTopicCommentUnreacted", reaction, data.serverId);
 };

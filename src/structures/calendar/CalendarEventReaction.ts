@@ -1,5 +1,8 @@
-import { CalendarEventReactionPayload, EmotePayload } from "../../typings";
 import { Client } from "../Client";
+import { 
+    CalendarEventReactionPayload, 
+    EmotePayload 
+} from "../../typings";
 
 export class CalendarEventReaction {
     /** The ID of the channel where this reaction was created. */

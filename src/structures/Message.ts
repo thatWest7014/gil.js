@@ -1,10 +1,13 @@
 import { SendMessageOptions } from "../managers/MessageManager";
-import { MessagePayload, MessageType } from "../typings/payloads/message";
-import { MentionsPayload } from "../typings/payloads/message/mentions";
-import { Channel } from "./Channel";
+import { Channel } from "./channel/Channel";
 import { Client } from "./Client";
 import { Embed } from "./Embed";
 import { Server } from "./Server";
+import { 
+    MentionsPayload,
+    MessagePayload,
+    MessageType 
+} from "../typings";
 
 export class Message {
     /** The ID of the message. */

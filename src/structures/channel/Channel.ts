@@ -1,6 +1,6 @@
-import { SendMessageOptions } from "../managers/MessageManager";
-import { ServerChannelPayload, ServerChannelType, ServerChannelVisibility } from "../typings";
-import { Client } from "./Client";
+import { SendMessageOptions } from "../../managers/MessageManager";
+import { ServerChannelPayload, ServerChannelType, ServerChannelVisibility } from "../../typings";
+import { Client } from "../Client";
 
 export class Channel {
     /** The ID of the channel. */

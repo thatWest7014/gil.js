@@ -1,5 +1,5 @@
-import { DocReactionPayload, EmotePayload } from "../../typings";
 import { Client } from "../Client";
+import { DocReactionPayload, EmotePayload } from "../../typings";
 
 export class DocReaction {
     /** The ID of the channel where this reaction was created. */

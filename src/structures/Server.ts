@@ -1,5 +1,8 @@
-import { ServerPayload, ServerType } from "../typings";
 import { Client } from "./Client";
+import { 
+    ServerPayload, 
+    ServerType 
+} from "../typings";
 
 export class Server {
     /** The ID of the server. */

@@ -1,4 +1,4 @@
-import { Channel } from "../../structures/Channel";
+import { Channel } from "../../structures/channel/Channel";
 import { ChannelRolePermission } from "../../structures/ChannelRolePermission";
 import { ChannelUserPermission } from "../../structures/ChannelUserPermission";
 import { Client } from "../../structures/Client";

@@ -1,5 +1,5 @@
-import { CalendarEventSeriesPayload } from "../../typings";
 import { Client } from "../Client";
+import { CalendarEventSeriesPayload } from "../../typings";
 
 export class CalendarEventSeries {
     /** The ID of the calendar event series. */

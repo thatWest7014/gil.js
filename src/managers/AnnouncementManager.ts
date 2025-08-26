@@ -1,7 +1,11 @@
-import { CreateAnnouncementBody, UpdateAnnouncementBody, UpdateAnnouncementCommentBody } from "../rest/routers/AnnouncementRouter";
+import { BaseManager } from "./BaseManager";
 import { Announcement } from "../structures/announcement/Announcement";
 import { AnnouncementComment } from "../structures/announcement/AnnouncementComment";
-import { BaseManager } from "./BaseManager";
+import { 
+    CreateAnnouncementBody, 
+    UpdateAnnouncementBody, 
+    UpdateAnnouncementCommentBody 
+} from "../typings";
 
 export class AnnouncementManager extends BaseManager<string, Announcement> {
     /**

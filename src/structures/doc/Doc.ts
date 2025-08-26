@@ -1,5 +1,5 @@
-import { DocPayload, MentionsPayload } from "../../typings";
 import { Client } from "../Client";
+import { DocPayload, MentionsPayload } from "../../typings";
 
 export class Doc {
     /** The ID of the doc. */

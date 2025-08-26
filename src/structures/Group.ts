@@ -1,5 +1,5 @@
-import { GroupPayload } from "../typings/payloads/server/group";
 import { Client } from "./Client";
+import { GroupPayload } from "../typings";
 
 export class Group {
     /** The ID of the group. */

@@ -1,6 +1,6 @@
-import { ServerMemberPayload } from "../typings/payloads/server/member";
 import { Client } from "./Client";
 import { User } from "./User";
+import { ServerMemberPayload } from "../typings";
 
 export class Member {
     /** The user info of the member. */

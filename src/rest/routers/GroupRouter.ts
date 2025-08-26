@@ -1,27 +1,5 @@
-import { GroupPayload } from "../../typings/payloads/server/group";
 import { BaseRouter } from "./BaseRouter";
-
-export type CreateGroupBody = {
-    /** The name of the group. */
-    name: string;
-    /** The description of the group. */
-    description?: string;
-    /** The ID of the emote of the group. */
-    emoteId?: number;
-    /** Whether the group is public. */
-    isPublic?: boolean;
-};
-
-export type UpdateGroupBody = {
-    /** The name of the group. */
-    name: string;
-    /** The description of the group. */
-    description?: string;
-    /** The ID of the emote of the group. */
-    emoteId?: number;
-    /** Whether the group is public. */
-    isPublic?: boolean;
-};
+import { CreateGroupBody, GroupPayload, UpdateGroupBody } from "../../typings";
 
 export class GroupRouter extends BaseRouter {
     async create(serverId: string, data: CreateGroupBody) {

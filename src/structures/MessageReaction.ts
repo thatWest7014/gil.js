@@ -1,5 +1,8 @@
-import { EmotePayload, MessageReactionPayload } from "../typings";
 import { Client } from "./Client";
+import { 
+    EmotePayload, 
+    MessageReactionPayload 
+} from "../typings";
 
 export class MessageReaction {
     /** The ID of the channel where this reaction was created. */

@@ -14,7 +14,7 @@ import {
     DocReactionCreatedPayload,
     DocReactionDeletedPayload,
     DocUpdatedPayload 
-} from "../../typings/ws/events/channel/doc";
+} from "../../typings";
 
 export const created = (data: DocCreatedPayload, client: Client) => {
     const doc = new Doc(data.doc, client);
@@ -50,22 +50,22 @@ export const commentUpdated = (data: DocCommentUpdatedPayload, client: Client) =
 
 export const reactionCreated = (data: DocReactionCreatedPayload, client: Client) => {
     const reaction = new DocReaction(data.reaction, client);
-    client.emit("docReact", reaction, data.serverId);
+    client.emit("docReacted", reaction, data.serverId);
 };
 
 export const reactionDeleted = (data: DocReactionDeletedPayload, client: Client) => {
     const reaction = new DocReaction(data.reaction, client);
-    client.emit("docUnreact", reaction, data.serverId);
+    client.emit("docUnreacted", reaction, data.serverId);
 };
 
 /** Comment Reaction */
 
 export const commentReactionCreated = (data: DocCommentReactionCreatedPayload, client: Client) => {
     const reaction = new DocCommentReaction(data.reaction, client);
-    client.emit("docCommentReact", reaction, data.serverId);
+    client.emit("docCommentReacted", reaction, data.serverId);
 };
 
 export const commentReactionDeleted = (data: DocCommentReactionDeletedPayload, client: Client) => {
     const reaction = new DocCommentReaction(data.reaction, client);
-    client.emit("docCommentUnreact", reaction, data.serverId);
+    client.emit("docCommentUnreacted", reaction, data.serverId);
 };

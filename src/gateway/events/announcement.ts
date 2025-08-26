@@ -33,12 +33,12 @@ export const deleted = (data: AnnouncementDeletedPayload, client: Client) => {
 
 export const reactionCreated = (data: AnnouncementReactionCreatedPayload, client: Client) => {
     const reaction = new AnnouncementReaction(data.reaction, client);
-    client.emit("announcementReact", reaction);
+    client.emit("announcementReacted", reaction);
 };
 
 export const reactionDeleted = (data: AnnouncementReactionDeletedPayload, client: Client) => {
     const reaction = new AnnouncementReaction(data.reaction, client);
-    client.emit("announcementUnreact", reaction);
+    client.emit("announcementUnreacted", reaction);
 };
 
 export const commentCreated = (data: AnnouncementCommentCreatedPayload, client: Client) => {
@@ -58,10 +58,10 @@ export const commentDeleted = (data: AnnouncementCommentDeletedPayload, client: 
 
 export const commentReactionCreated = (data: AnnouncementCommentReactionCreatedPayload, client: Client) => {
     const reaction = new AnnouncementCommentReaction(data.reaction, client);
-    client.emit("announcementCommentReact", reaction);
+    client.emit("announcementCommentReacted", reaction);
 };
 
 export const commentReactionDeleted = (data: AnnouncementCommentReactionDeletedPayload, client: Client) => {
     const reaction = new AnnouncementCommentReaction(data.reaction, client);
-    client.emit("announcementCommentUnreact", reaction);
+    client.emit("announcementCommentUnreacted", reaction);
 };

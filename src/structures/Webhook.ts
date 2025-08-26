@@ -1,5 +1,5 @@
-import { WebhookPayload } from "../typings";
 import { Client } from "./Client";
+import { WebhookPayload } from "../typings";
 
 export class Webhook {
     /** The ID of the webhook. */

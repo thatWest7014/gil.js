@@ -1,6 +1,10 @@
-import { ClientUserPayload, UserPayload, UserStatusPayload, UserType } from "../typings/payloads/user";
 import { Client } from "./Client";
 import { UserStatus } from "./UserStatus";
+import { 
+    ClientUserPayload, 
+    UserPayload, 
+    UserType 
+} from "../typings";
 
 export class User {
     /** The ID of the user. */

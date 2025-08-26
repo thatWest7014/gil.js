@@ -1,5 +1,8 @@
-import { AnnouncementCommentPayload, MentionsPayload } from "../../typings";
 import { Client } from "../Client";
+import { 
+    AnnouncementCommentPayload, 
+    MentionsPayload 
+} from "../../typings";
 
 export class AnnouncementComment {
     id: number;

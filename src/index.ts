@@ -26,7 +26,7 @@ export * from "./structures/Ban";
 export * from "./structures/Category";
 export * from "./structures/CategoryRolePermission";
 export * from "./structures/CategoryUserPermission";
-export * from "./structures/Channel";
+export * from "./structures/channel/Channel";
 export * from "./structures/ChannelRolePermission";
 export * from "./structures/ChannelUserPermission";
 export * from "./structures/Client";
@@ -45,6 +45,7 @@ export * from "./structures/Webhook";
 
 export * from "./managers/AnnouncementManager";
 export * from "./managers/BaseManager";
+export * from "./managers/CalendarEventManager";
 export * from "./managers/CategoryManager";
 export * from "./managers/ChannelManager";
 export * from "./managers/GroupManager"

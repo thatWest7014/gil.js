@@ -1,17 +1,9 @@
-import { EmbedPayload, MessagePayload } from "../../typings";
 import { BaseRouter } from "./BaseRouter";
-
-export interface CreateMessageBody extends UpdateMessageBody {
-    isPrivate?: boolean;
-    isSilent?: boolean;
-    replyMessageIds?: string[];
-};
-
-export type UpdateMessageBody = {
-    content?: string;
-    hiddenLinkPreviewUrls?: string[];
-    embeds?: EmbedPayload[];
-};
+import { 
+    CreateMessageBody, 
+    MessagePayload, 
+    UpdateMessageBody 
+} from "../../typings";
 
 export class MessageRouter extends BaseRouter {
     async create(channelId: string, data: CreateMessageBody) {

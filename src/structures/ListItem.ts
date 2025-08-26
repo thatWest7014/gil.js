@@ -1,5 +1,9 @@
-import { ListItemNotePayload, ListItemPayload, MentionsPayload } from "../typings";
 import { Client } from "./Client";
+import { 
+    ListItemNotePayload, 
+    ListItemPayload, 
+    MentionsPayload 
+} from "../typings";
 
 export class ListItem {
     /** The ID of the list item. */

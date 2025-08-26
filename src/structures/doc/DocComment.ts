@@ -1,5 +1,5 @@
-import { DocCommentPayload, MentionsPayload } from "../../typings";
 import { Client } from "../Client";
+import { DocCommentPayload, MentionsPayload } from "../../typings";
 
 export class DocComment {
     /** The ID of the doc comment. */

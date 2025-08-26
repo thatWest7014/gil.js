@@ -1,5 +1,5 @@
-import { UserStatusPayload } from "../typings";
 import { Client } from "./Client";
+import { UserStatusPayload } from "../typings";
 
 export class UserStatus {
     content?: string;

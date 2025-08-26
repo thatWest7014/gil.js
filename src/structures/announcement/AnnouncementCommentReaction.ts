@@ -1,5 +1,8 @@
-import { AnnouncementCommentReactionPayload, EmotePayload } from "../../typings";
 import { Client } from "../Client";
+import { 
+    AnnouncementCommentReactionPayload, 
+    EmotePayload 
+} from "../../typings";
 
 export class AnnouncementCommentReaction {
     channelId: string;

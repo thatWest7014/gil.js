@@ -1,5 +1,11 @@
-import { EmbedAuthorPayload, EmbedFieldPayload, EmbedFooterPayload, EmbedImagePayload, EmbedPayload, EmbedThumbnailPayload } from "../typings";
-import { Client } from "./Client";
+import { 
+    EmbedAuthorPayload, 
+    EmbedFieldPayload, 
+    EmbedFooterPayload, 
+    EmbedImagePayload, 
+    EmbedPayload, 
+    EmbedThumbnailPayload 
+} from "../typings";
 
 export class Embed {
     /** The title of the embed. */

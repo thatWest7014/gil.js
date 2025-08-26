@@ -1,5 +1,5 @@
 import { Group } from "../structures/Group";
-import { CreateGroupBody, UpdateGroupBody } from "../rest/routers/GroupRouter";
+import { CreateGroupBody, UpdateGroupBody } from "../typings";
 import { BaseManager } from "./BaseManager";
 
 export class GroupManager extends BaseManager<string, Group> {

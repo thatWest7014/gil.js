@@ -1,5 +1,5 @@
-import { Channel } from "../structures/Channel";
-import { CreateChannelBody, UpdateChannelBody } from "../rest/routers/ChannelRouter";
+import { Channel } from "../structures/channel/Channel";
+import { CreateChannelBody, UpdateChannelBody } from "../typings";
 import { BaseManager } from "./BaseManager";
 
 export class ChannelManager extends BaseManager<string, Channel> {
