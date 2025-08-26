@@ -1,6 +1,6 @@
 {
   "name": "gil.js",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A powerful Node.js library for interacting with the Guilded API.",
   "type": "commonjs",
   "main": "dist/src/index.js",
