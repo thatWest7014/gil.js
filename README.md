@@ -1,3 +1,7 @@
+> [!WARNING]
+> Guilded is [shutting down on Dec 19, 2025](https://www.guilded.gg/blog/guilded-shut-down-12-19-25).
+> This project has now officially been archived as of March 6, 2025.
+
 # gil.js
 
 A powerful Node.js library for interacting with the Guilded API.
